@@ -11,7 +11,7 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 # Shared search pattern
-SEARCH_PATTERN = r'\b(?:از|ز|ب|بر|در|و|را|رو|با|-)?دندون(?:ها|های|ای|ا)?(?:م|ت|ش|مان|تان|شان|مون|تون|شون)?\b'
+SEARCH_PATTERN = r'\b(?:از|ز|ب|بر|در|و|را|رو|با|-)?دس(:?ت)?(?:ها|های|ای|ا|ان)?(?:م|ت|ش|مان|تان|شان|مون|تون|شون)?\b'
 
 # Concordance generator
 def generate_concordance(tokens, pattern, left_col, right_col):
@@ -45,7 +45,7 @@ def process_hamshahri():
     hamshahri = HamshahriReader(root=data_path)
     h_texts = " ".join(text for text in hamshahri.texts())
 
-    output_path = '/content/drive/MyDrive/output/ham_dandun_160_all_data.xlsx'
+    output_path = '/content/drive/MyDrive/output/ham_dast_160_all_data.xlsx'
     process_corpus(h_texts, SEARCH_PATTERN, output_path)
 
 # Dastan corpus
@@ -69,7 +69,7 @@ def process_dastan():
     arabic_digits = '0123456789'
     d_texts = d_texts.translate(str.maketrans(persian_digits, arabic_digits))
 
-    output_path = '/content/drive/MyDrive/output/das_dandun_all_data.xlsx'
+    output_path = '/content/drive/MyDrive/output/das_dast_all_data.xlsx'
     process_corpus(d_texts, SEARCH_PATTERN, output_path)
 
 # Run both
